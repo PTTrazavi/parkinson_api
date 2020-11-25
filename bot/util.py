@@ -98,8 +98,8 @@ def p_detection(pk_o):
 
     # classifer 2類
     classes = model.predict(x)
-    print("predicted class:", classes)
-    if classes[0] <=0.5:
+    print("predicted class:", classes[0][0])
+    if classes[0][0] <=0.5:
         class_name = labels[0]
     else:
         class_name = labels[1]
@@ -130,6 +130,7 @@ def p_detection(pk_o):
 
     photo_o.result_file = img_content
     photo_o.readiness = "2"
+    photo_o.result = str(round(classes[0][0].item(),3))
     photo_o.save()
 
     return photo_o.result_file.url

@@ -6,4 +6,4 @@ from .models import Imageupload
 
 @admin.register(Imageupload)
 class ImageuploadmaskAdmin(admin.ModelAdmin):
-    list_display = ('pk','date_of_upload', 'readiness', 'image_file', 'result_file')
+    list_display = ('pk','date_of_upload', 'readiness', 'result', 'image_file', 'result_file')
